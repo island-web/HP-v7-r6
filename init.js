@@ -90,10 +90,10 @@ function insertText(text, id) {
     }, 80);
 
 }
-
+let volume_ = 'on';
 function sound_init() {
-    let element = document.getElementById('volume-btn');
-    console.log(element.classList);
+    if(volume_ === 'on'){ PLAYER_MUSIC.volume = 0; volume_ = 'off'; }else{ PLAYER_MUSIC.volume = 0.5; volume_ = 'on'; }
+    
 }
 
 function minimize() {

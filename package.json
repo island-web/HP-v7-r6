@@ -1,41 +1,50 @@
 {
-  "name": "huinity-controller-demon",
-  "version": "21.3.5",
-  "description": "Huinity Player",
-  "productName": "Huinity Player",
+  "name": "player",
+  "version": "5.7.7",
+  "description": "H-Player",
+  "productName": "H-Player",
   "main": "main.js",
-  "author": "Lupandin Denys",
+  "author": {
+    "name": "Den Lupandin",
+    "email": "island.web.studio@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
-    "start": "electron . --no-icon"
-  },
-  "build": {
-    "asar": "true",
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "ia32"
-          ]
-        }
-      ]
-    }
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/island-web/GTP-HUINITY.git"
+    "url": "git+https://github.com/island-web/HP-v7-r6.git"
   },
   "bugs": {
-    "url": "https://github.com/island-web/GTP-HUINITY/issues"
+    "url": "https://github.com/island-web/HP-v7-r6/issues"
   },
-  "homepage": "https://github.com/island-web/GTP-HUINITY#readme",
+  "homepage": "https://github.com/island-web/HP-v7-r6#readme",
+  "build": {
+    "appId": "com.island.h-player-app",
+    "productName": "H-Player",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Utility",
+      "icon": "./build/icon.png"
+    },
+    "deb": {
+      "afterInstall": "chmod -R 777 /opt/H-Player"
+    }
+  },
   "dependencies": {
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
     "node-cron": "^3.0.2",
-    "node-schedule": "^2.1.1",
     "nodejs-file-downloader": "^4.12.1",
     "path": "^0.12.7",
     "pm2": "^5.3.0",
@@ -44,9 +53,10 @@
     "uuid": "^7.0.0"
   },
   "devDependencies": {
+    "electron": "^21.3.5",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
-    "electron": "^21.3.5",
+    "electron-builder": "^24.4.0",
     "eslint": "^8.42.0"
   }
 }

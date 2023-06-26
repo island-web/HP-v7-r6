@@ -8,21 +8,6 @@ const pm2 = require('pm2');
 const path = require('path');
 const fs = require('fs');
 
-
-
-//обработка ошибок
-process.on('uncaughtException', (err) => {
-  console.error('Необработанная ошибка:', err);
-  console.log("uncaughtException all errors");
-// Дополнительные действия по обработке ошибки
-  // Например, можно записать информацию об ошибке в журнал и завершить процесс
-  //process.exit(1); // Завершить процесс с кодом ошибки
-});
-
-
-//•••••••••••••••••
-
-
 const moment = require('moment-timezone');
 moment.tz.setDefault('Europe/Kiev');
 const tempus = require(path.join(__dirname, 'tempus.js'));

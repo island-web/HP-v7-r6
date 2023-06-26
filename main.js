@@ -16,15 +16,7 @@ if (!fs.existsSync(path_app)) {
   })().catch(e => { console.log(e); LOG.save_log(e, 'error'); });
 }
 
-exec('pm2 -v', (error, stdout, stderr) => {
-  if (error) {
-    LOG.save_log("start install dependencies");
-    exec('npm install pm2 -g', (err, stdout, stderr) => {
-      if (err) { LOG.save_log(err, 'error') }
-      else { LOG.save_log("install pm2 global module: successful") }
-    });
-  }
-});
+
 
 
 
@@ -60,8 +52,8 @@ function createWindow() {
 
   mainWindow.loadFile('index.html');
   initModule.loadFile('init.html');
-  initModule.webContents.openDevTools();
-  mainWindow.webContents.openDevTools();
+  //initModule.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   const reload_station = () => { mainWindow.reload() }
 
